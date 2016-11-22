@@ -1,6 +1,11 @@
+package game;
+import javax.swing.JPanel;
 
-public class ControlPanel {
+public class ControlPanel extends JPanel{
 	private int userAngle;
+	
+	public ControlPanel() {
+	}
 	
 	public void draw() {
 	}

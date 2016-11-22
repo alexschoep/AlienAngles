@@ -1,8 +1,9 @@
+package game;
 
-public class Alien {
+public class Missile {
 	private int xPos;
 	private int yPos;
-	private boolean alive;
+	private boolean missileHit;
 	
 	public int getXPos() {
 		return xPos;
@@ -12,13 +13,13 @@ public class Alien {
 		return yPos;
 	}
 	
-	public boolean checkHit(int x, int y) {
-		return false;
+	public boolean missileHit() {
+		return missileHit;
 	}
 	
-	public void killAlien() {
-	}
-
 	public void draw() {
+	}
+	
+	public void detonate() {
 	}
 }

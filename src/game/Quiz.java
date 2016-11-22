@@ -1,6 +1,8 @@
+package game;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
-public class Quiz {
+public class Quiz extends JPanel{
 	private ArrayList<Question> quizQuestions;
 	private int score;
 	
