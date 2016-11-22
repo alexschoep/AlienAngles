@@ -1,15 +1,15 @@
 package game;
 
 public class Missile {
-	private int xPos;
-	private int yPos;
+	private double xPos;
+	private double yPos;
 	private boolean missileHit;
 	
-	public int getXPos() {
+	public double getXPos() {
 		return xPos;
 	}
 	
-	public int getYPos() {
+	public double getYPos() {
 		return yPos;
 	}
 	

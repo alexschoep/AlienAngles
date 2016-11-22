@@ -1,19 +1,23 @@
 package game;
 
 public class Alien {
-	private int xPos;
-	private int yPos;
+	private double xPos;
+	private double yPos;
 	private boolean alive;
 	
-	public int getXPos() {
+	public double getXPos() {
 		return xPos;
 	}
 	
-	public int getYPos() {
+	public double getYPos() {
 		return yPos;
 	}
 	
-	public boolean checkHit(int x, int y) {
+	public boolean alive() {
+		return alive;
+	}
+	
+	public boolean checkHit(double x, double y) {
 		return false;
 	}
 	

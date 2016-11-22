@@ -1,10 +1,11 @@
 package game;
 
 public class Level {
-	public static final int tolerance = 10;
 	private int levelAngle;
 	private Alien alien;
 	private Missile missile;
+	private boolean passFail;
+	private int precision;
 	
 	public void setAngle(int angle) {
 		//sets levelAngle for testing purposes
@@ -17,6 +18,10 @@ public class Level {
 	
 	public int getLevelAngle() {
 		return levelAngle;
+	}
+	
+	public int getPrecision() {
+		return precision;
 	}
 	
 	public Missile getMissile() {
@@ -32,6 +37,14 @@ public class Level {
 		//calls missile.draw and alien.draw
 	}
 	
-	public void moveMissile() {
+	public void moveMissile(int angle) {
+	}
+
+	public boolean isPassFail() {
+		return passFail;
+	}
+
+	public void setPassFail(boolean passFail) {
+		this.passFail = passFail;
 	}
 }
