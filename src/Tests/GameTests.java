@@ -1,5 +1,8 @@
-package tests;
+package Tests;
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 import org.junit.*;
 import game.*;
 
@@ -86,10 +89,27 @@ public class GameTests {
 		
 	@Test
 	public void quizTests() {
+		Quiz quiz = game.getQuiz();
+		ArrayList<Question> quizQuestions = quiz.getQuestions();
 		//test if checkAnswer returns true on correct answer
+		Question questionOne = quizQuestions.get(0);
+		questionOne.setAnswer("Nonsense");
+		boolean checkOne = questionOne.checkAnswer("Nonsense");
+		assertTrue(checkOne);
 		//test if checkAnswer returns false on wrong answer
+		Question questionTwo = quizQuestions.get(1);
+		questionTwo.setAnswer("Nonsense");
+		boolean checkTwo = questionTwo.checkAnswer("Not Nonsense");
+		assertFalse(checkTwo);
 		//test if checkAnswers determines correct score
-		
+		int counter = 0;
+		for(int i = 0; i < quizQuestions.size(); i++) {
+			quizQuestions.get(i).setAnswer("Answer");
+			if(quizQuestions.get(i).checkAnswer("Answer")) {
+				counter++;
+			}
+		}
+		assertEquals(counter, quizQuestions.size());
 	}
 	
 	@Test

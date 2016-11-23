@@ -15,6 +15,13 @@ public class Game extends JFrame{
 	}
 	
 	public Game() {
+		controlPanel = new ControlPanel();
+		quiz = new Quiz();
+		levels = new ArrayList<Level>();
+		levels.add(new Level());
+		levels.add(new Level());
+		levels.add(new Level());
+		levels.add(new Level());
 		//game constructor
 	}
 	
@@ -25,10 +32,14 @@ public class Game extends JFrame{
 	}
 	
 	public ArrayList<Level> getLevels() {
-		return null;
+		return levels;
 	}
 	
 	public ControlPanel getControlPanel() {
-		return null;
+		return controlPanel;
+	}
+	
+	public Quiz getQuiz() {
+		return quiz;
 	}
 }

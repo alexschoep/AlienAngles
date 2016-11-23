@@ -7,6 +7,10 @@ public class Quiz extends JPanel{
 	private int score;
 	
 	public Quiz() {
+		quizQuestions = new ArrayList<Question>();
+		quizQuestions.add(new Question(0));
+		quizQuestions.add(new Question(1));
+		
 		//populates quizQuestions with Question for each level
 	}
 	
@@ -20,6 +24,10 @@ public class Quiz extends JPanel{
 	
 	public int getScore() {
 		return score;
+	}
+
+	public ArrayList<Question> getQuestions() {
+		return quizQuestions;
 	}
 	
 	//there will be an action listener in this class, questions can just be radio buttons

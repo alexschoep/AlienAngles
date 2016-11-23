@@ -25,4 +25,9 @@ public class Question extends JPanel{
 	public boolean checkAnswer(String answer) {
 		return false;
 	}
+
+	public void setAnswer(String string) {
+		rightAnswer = string;
+		
+	}
 }

@@ -12,6 +12,9 @@ public class Level {
 	}
 	
 	public Level() {
+		levelAngle = 0;
+		alien = new Alien();
+		missile = new Missile();
 		//randomly sets an angle
 		//initializes an alien and missile
 	}
@@ -38,6 +41,7 @@ public class Level {
 	}
 	
 	public void moveMissile(int angle) {
+		return;
 	}
 
 	public boolean isPassFail() {
