@@ -19,18 +19,18 @@ public class Missile {
 	}
 	
 	protected void changePosition(int angle) {
-		xPos += Math.cos(angle);
-		yPos += Math.sin(angle);
+		xPos += Math.cos(Math.toRadians(angle));
+		yPos += Math.sin(Math.toRadians(angle));
 	}
 	
 	public boolean missileHit() {
 		return missileHit;
 	}
 	
-	public void draw() {
+	protected void detonate() {
+		missileHit = true;
 	}
 	
-	public void detonate() {
-		missileHit = true;
+	public void draw() {
 	}
 }

@@ -30,9 +30,10 @@ public class GameTests {
 		//test if missile does not detonate on miss
 		level = new Level();
 		level.setAngle(60);
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 300; i++) {
 			level.moveMissile(30);
 		}
+		System.out.println()
 		assertTrue(level.getAlien().alive());
 		assertFalse(level.getMissile().missileHit());
 	}

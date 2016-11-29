@@ -3,7 +3,7 @@ package game;
 import java.awt.Graphics;
 
 public class Alien {
-	public static final double hitDistance = Game.gameRadius*Math.cos(Game.tolerance);
+	public static final double hitDistance = Game.gameRadius*Math.cos(Math.toRadians(Game.tolerance));
 	private double xPos;
 	private double yPos;
 	private boolean alive = true;
@@ -29,7 +29,7 @@ public class Alien {
 		return (xPos - x < hitDistance) && (yPos - y < hitDistance);
 	}
 	
-	public void killAlien() {
+	protected void killAlien() {
 		alive = false;
 	}
 

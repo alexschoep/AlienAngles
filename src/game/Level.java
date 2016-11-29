@@ -43,6 +43,10 @@ public class Level {
 	
 	public void moveMissile(int angle) {
 		missile.changePosition(angle);
+		if (alien.checkHit(missile.getXPos(), missile.getYPos())) {
+			alien.killAlien();
+			missile.detonate();
+		}
 	}
 
 	public boolean isPassFail() {
