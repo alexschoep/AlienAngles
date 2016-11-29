@@ -20,7 +20,7 @@ public class GameTests {
 		//test if missile detonates on hit
 		Level level = new Level();
 		level.setAngle(60);
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 300; i++) {
 			level.moveMissile(60);
 		}
 		assertFalse(level.getAlien().alive());
@@ -33,7 +33,6 @@ public class GameTests {
 		for (int i = 0; i < 300; i++) {
 			level.moveMissile(30);
 		}
-		System.out.println()
 		assertTrue(level.getAlien().alive());
 		assertFalse(level.getMissile().missileHit());
 	}
@@ -44,47 +43,48 @@ public class GameTests {
 		Level level = new Level();
 		//test one missile move
 		level.moveMissile(90);
-		assertTrue(Math.abs(level.getMissile().getXPos() - 0) <= .001);
+		assertTrue(Math.abs(level.getMissile().getXPos() - Game.gameRadius) <= .001);
 		assertTrue(Math.abs(level.getMissile().getYPos() - 1) <= .001);
 		//test missile move to end of protractor
 		for (int i = 0; i < 299; i++) {
 			level.moveMissile(90);
 		}
-		assertTrue(Math.abs(level.getMissile().getXPos() - 0) <= .001);
+		assertTrue(Math.abs(level.getMissile().getXPos() - Game.gameRadius) <= .001);
 		assertTrue(Math.abs(level.getMissile().getYPos() - 300) <= .001);
 		
 		//test missile movement at 0
 		level = new Level();
 		level.moveMissile(0);
-		assertTrue(Math.abs(level.getMissile().getXPos() - 1) <= .001);
+		assertTrue(Math.abs(level.getMissile().getXPos() - (Game.gameRadius + 1)) <= .001);
 		assertTrue(Math.abs(level.getMissile().getYPos() - 0) <= .001);
 		for (int i = 0; i < 299; i++) {
 			level.moveMissile(0);
 		}
-		assertTrue(Math.abs(level.getMissile().getXPos() - 300) <= .001);
+		assertTrue(Math.abs(level.getMissile().getXPos() - (Game.gameRadius + 300)) <= .001);
 		assertTrue(Math.abs(level.getMissile().getYPos() - 0) <= .001);
 		
 		//test missile movement at 45
 		level = new Level();
 		level.moveMissile(45);
-		assertTrue(Math.abs(level.getMissile().getXPos() - .7072) <= .001);
-		assertTrue(Math.abs(level.getMissile().getYPos() - .7072) <= .001);
+		assertTrue(Math.abs(level.getMissile().getXPos() - (Game.gameRadius + Math.cos(Math.toRadians(45)))) <= .001);
+		assertTrue(Math.abs(level.getMissile().getYPos() - Math.sin(Math.toRadians(45))) <= .001);
+		
 		for (int i = 0; i < 299; i++) {
-			level.moveMissile(90);
+			level.moveMissile(45);
 		}
-		assertTrue(Math.abs(level.getMissile().getXPos() - 300*0.7072) <= .001);
-		assertTrue(Math.abs(level.getMissile().getYPos() - 300*0.7072) <= .001);
+		assertTrue(Math.abs(level.getMissile().getXPos() - (Game.gameRadius + 300*Math.cos(Math.toRadians(45)))) <= .001);
+		assertTrue(Math.abs(level.getMissile().getYPos() - 300*Math.sin(Math.toRadians(45))) <= .001);
 		
 		//test missile movement at 60
 		level = new Level();
 		level.moveMissile(60);
-		assertTrue(Math.abs(level.getMissile().getXPos() - .5) <= .001);
-		assertTrue(Math.abs(level.getMissile().getYPos() - .8660) <= .001);
+		assertTrue(Math.abs(level.getMissile().getXPos() - (Game.gameRadius + Math.cos(Math.toRadians(60)))) <= .001);
+		assertTrue(Math.abs(level.getMissile().getYPos() - Math.sin(Math.toRadians(60))) <= .001);
 		for (int i = 0; i < 299; i++) {
-			level.moveMissile(90);
+			level.moveMissile(60);
 		}
-		assertTrue(Math.abs(level.getMissile().getXPos() - 300*.5) <= .001);
-		assertTrue(Math.abs(level.getMissile().getYPos() - 300*.8660) <= .001);
+		assertTrue(Math.abs(level.getMissile().getXPos() - (Game.gameRadius + 300*Math.cos(Math.toRadians(60)))) <= .001);
+		assertTrue(Math.abs(level.getMissile().getYPos() - 300*Math.sin(Math.toRadians(60))) <= .001);
 
 	}
 		

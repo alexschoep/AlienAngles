@@ -6,7 +6,7 @@ public class Missile {
 	private boolean missileHit;
 	
 	public Missile() {
-		xPos = 0;
+		xPos = Game.gameRadius;
 		yPos = 0;
 	}
 	
