@@ -3,7 +3,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 public class Game extends JFrame{
-	public static final int tolerance = 10;
+	public static final int tolerance = 5;
+	public static final int gameRadius = 300;
 	public static Game instance;
 	public final int numLevels = 5;
 	private ArrayList<Level> levels;

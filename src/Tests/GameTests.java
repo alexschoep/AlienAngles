@@ -1,4 +1,4 @@
-package Tests;
+package tests;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -136,13 +136,13 @@ public class GameTests {
 			game.getLevels().get(2).moveMissile(game.getLevels().get(2).getLevelAngle());
 		}
 		assertTrue(game.getLevels().get(2).getPrecision() == game.getControlPanel().getPrecision());
-		assertTrue(game.getLevels().get(2).getPrecision() <= game.tolerance);
+		assertTrue(game.getLevels().get(2).getPrecision() <= Game.tolerance);
 		
 		//tests precision on miss
 		for (int i = 0; i < 300; i++) {
 			game.getLevels().get(2).moveMissile(game.getLevels().get(2).getLevelAngle() + 20);
 		}
 		assertTrue(game.getLevels().get(2).getPrecision() == game.getControlPanel().getPrecision());
-		assertFalse(game.getLevels().get(2).getPrecision() <= game.tolerance);
+		assertFalse(game.getLevels().get(2).getPrecision() <= Game.tolerance);
 	}
 }

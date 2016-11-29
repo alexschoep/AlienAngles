@@ -1,5 +1,7 @@
 package game;
 
+import java.util.Random;
+
 public class Level {
 	private int levelAngle;
 	private Alien alien;
@@ -12,11 +14,10 @@ public class Level {
 	}
 	
 	public Level() {
-		levelAngle = 0;
-		alien = new Alien();
+		Random random = new Random();
+		levelAngle = random.nextInt(181);
+		alien = new Alien(Game.gameRadius*Math.cos((double) levelAngle), Game.gameRadius*Math.sin((double) levelAngle));
 		missile = new Missile();
-		//randomly sets an angle
-		//initializes an alien and missile
 	}
 	
 	public int getLevelAngle() {
@@ -41,7 +42,7 @@ public class Level {
 	}
 	
 	public void moveMissile(int angle) {
-		return;
+		missile.changePosition(angle);
 	}
 
 	public boolean isPassFail() {
