@@ -9,14 +9,15 @@ public class Level {
 	private boolean passFail;
 	private int precision;
 	
-	public void setAngle(int angle) {
-		//sets levelAngle for testing purposes
+	public Level(int angle) {
+		alien = new Alien(angle);
+		missile = new Missile();
 	}
 	
 	public Level() {
 		Random random = new Random();
 		levelAngle = random.nextInt(181);
-		alien = new Alien(Game.gameRadius*Math.cos((double) levelAngle), Game.gameRadius*Math.sin((double) levelAngle));
+		alien = new Alien(levelAngle);
 		missile = new Missile();
 	}
 	

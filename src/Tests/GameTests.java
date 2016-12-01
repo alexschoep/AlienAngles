@@ -18,18 +18,17 @@ public class GameTests {
 	public void missileHitTests() {
 		//test if alien dies on hit
 		//test if missile detonates on hit
-		Level level = new Level();
-		level.setAngle(60);
+		Level level = new Level(60);
 		for (int i = 0; i < 300; i++) {
 			level.moveMissile(60);
 		}
+		
 		assertFalse(level.getAlien().alive());
 		assertTrue(level.getMissile().missileHit());
 		
 		//test if alien does not die on miss
 		//test if missile does not detonate on miss
-		level = new Level();
-		level.setAngle(60);
+		level = new Level(60);
 		for (int i = 0; i < 300; i++) {
 			level.moveMissile(30);
 		}

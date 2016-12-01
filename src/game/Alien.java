@@ -8,9 +8,9 @@ public class Alien {
 	private double yPos;
 	private boolean alive = true;
 	
-	public Alien(double xPos, double yPos) {
-		this.xPos = xPos;
-		this.yPos = yPos;
+	public Alien(int angle) {
+		this.xPos = Game.gameRadius*Math.cos(Math.toRadians((double) angle)) + Game.gameRadius;
+		this.yPos = Game.gameRadius*Math.sin(Math.toRadians((double) angle));
 	}
 	
 	public double getXPos() {
