@@ -1,4 +1,5 @@
 package game;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
@@ -32,13 +33,18 @@ public class Game extends JFrame{
 		//game constructor
 	}
 	
-	public void paintComponent(Graphics g) {
-		super.paintComponents(g);
-		repaint();
+	public void draw() {
 		//calls draw for each level
 		//calls draw for control panel
 		//draws background
-		
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponents(g);
+		g.setColor(Color.BLACK);
+		g.drawRect(5, 5, 5, 5);
+		g.fillRect(5, 5, 5, 5);
+		repaint();
 	}
 	
 	public ArrayList<Level> getLevels() {

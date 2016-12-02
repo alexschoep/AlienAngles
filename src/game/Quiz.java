@@ -1,4 +1,6 @@
 package game;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
@@ -15,6 +17,7 @@ public class Quiz extends JPanel{
 	}
 	
 	public void draw() {
+		
 	}
 	
 	public void checkAnswers() {
