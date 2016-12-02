@@ -5,13 +5,13 @@ import javax.swing.JPanel;
 public class Quiz extends JPanel{
 	private ArrayList<Question> quizQuestions;
 	private int score;
+	private Game game;
 	
-	public Quiz() {
+	public Quiz(Game game) {
 		quizQuestions = new ArrayList<Question>();
-		quizQuestions.add(new Question(0));
-		quizQuestions.add(new Question(1));
-		
-		//populates quizQuestions with Question for each level
+		for (int i = 0; i < Game.numLevels; i++) {
+			quizQuestions.add(game.getLevels().get(i).getQuestion());
+		}
 	}
 	
 	public void draw() {

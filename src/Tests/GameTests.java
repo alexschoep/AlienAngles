@@ -2,6 +2,7 @@ package tests;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.junit.*;
 import game.*;
@@ -90,7 +91,11 @@ public class GameTests {
 	@Test
 	public void quizTests() {
 		Quiz quiz = game.getQuiz();
-		ArrayList<Question> quizQuestions = quiz.getQuestions();
+		ArrayList<Question> quizQuestions = new ArrayList<Question>();
+		quizQuestions.add(new Question(0));
+		quizQuestions.add(new Question(0));
+		quizQuestions.add(new Question(0));
+		quizQuestions.add(new Question(0));
 		//test if checkAnswer returns true on correct answer
 		Question questionOne = quizQuestions.get(0);
 		questionOne.setAnswer("Nonsense");
