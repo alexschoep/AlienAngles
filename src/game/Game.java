@@ -11,7 +11,7 @@ public class Game extends JFrame{
 	private Quiz quiz;
 	private ControlPanel controlPanel;
 	
-	public Game getGame() {
+	public static Game getInstance() {
 		return instance;
 	}
 	
@@ -19,10 +19,10 @@ public class Game extends JFrame{
 		controlPanel = new ControlPanel();
 		quiz = new Quiz();
 		levels = new ArrayList<Level>();
-		levels.add(new Level());
-		levels.add(new Level());
-		levels.add(new Level());
-		levels.add(new Level());
+		levels.add(new Level(this));
+		levels.add(new Level(this));
+		levels.add(new Level(this));
+		levels.add(new Level(this));
 		//game constructor
 	}
 	

@@ -3,22 +3,27 @@ package game;
 import java.util.Random;
 
 public class Level {
+	private int moves = 0;
 	private int levelAngle;
 	private Alien alien;
 	private Missile missile;
-	private boolean passFail;
+	private boolean pass;
 	private int precision;
+	private Game game;
 	
-	public Level(int angle) {
+	public Level(int angle, Game game) {
 		alien = new Alien(angle);
 		missile = new Missile();
+		this.game = game;
+		
 	}
 	
-	public Level() {
+	public Level(Game game) {
 		Random random = new Random();
 		levelAngle = random.nextInt(181);
 		alien = new Alien(levelAngle);
 		missile = new Missile();
+		this.game = game;
 	}
 	
 	public int getLevelAngle() {
@@ -43,18 +48,27 @@ public class Level {
 	}
 	
 	public void moveMissile(int angle) {
+		precision = Math.abs(angle-levelAngle);
+		moves++;
 		missile.changePosition(angle);
 		if (alien.checkHit(missile.getXPos(), missile.getYPos())) {
-			alien.killAlien();
-			missile.detonate();
+				alien.killAlien();
+				missile.detonate();
+		}
+		if (moves == 300 && alien.alive()) {
+			endLevel(false, game);
+		}
+		if (moves == 300 && !alien.alive()) {
+			endLevel(true, game);
 		}
 	}
-
-	public boolean isPassFail() {
-		return passFail;
+	
+	public void endLevel(boolean pass, Game game) {
+		this.pass = pass;
+		game.getControlPanel().incProgress(precision);
 	}
 
-	public void setPassFail(boolean passFail) {
-		this.passFail = passFail;
+	public boolean passed() {
+		return pass;
 	}
 }

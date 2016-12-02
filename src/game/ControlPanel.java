@@ -7,6 +7,7 @@ public class ControlPanel extends JPanel{
 	private int progress;
 	
 	public ControlPanel() {
+		progress = 0;
 	}
 	
 	public void draw() {
@@ -28,8 +29,9 @@ public class ControlPanel extends JPanel{
 		return progress;
 	}
 
-	public void setProgress(int progress) {
-		this.progress = progress;
+	public void incProgress(int precision) {
+		progress++;
+		setPrecision(precision);
 	}
 
 	public void setUserAngle(int userAngle) {

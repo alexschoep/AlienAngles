@@ -11,19 +11,19 @@ public class Question extends JPanel{
 	}
 	
 	public String getQuestion() {
-		return null;
+		return question;
 	}
 	
 	public String getAnswer() {
-		return null;
+		return rightAnswer;
 	}
 	
 	public String getWrongAnswer() {
-		return null;
+		return wrongAnswer;
 	}
 	
 	public boolean checkAnswer(String answer) {
-		return false;
+		return rightAnswer.equals(answer);
 	}
 
 	public void setAnswer(String string) {

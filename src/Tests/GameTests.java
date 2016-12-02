@@ -18,7 +18,7 @@ public class GameTests {
 	public void missileHitTests() {
 		//test if alien dies on hit
 		//test if missile detonates on hit
-		Level level = new Level(60);
+		Level level = new Level(60, game);
 		for (int i = 0; i < 300; i++) {
 			level.moveMissile(60);
 		}
@@ -28,7 +28,7 @@ public class GameTests {
 		
 		//test if alien does not die on miss
 		//test if missile does not detonate on miss
-		level = new Level(60);
+		level = new Level(60, game);
 		for (int i = 0; i < 300; i++) {
 			level.moveMissile(30);
 		}
@@ -39,7 +39,7 @@ public class GameTests {
 	@Test
 	public void missileMoveTests() {
 		//test missile movement at 90
-		Level level = new Level();
+		Level level = new Level(game);
 		//test one missile move
 		level.moveMissile(90);
 		assertTrue(Math.abs(level.getMissile().getXPos() - Game.gameRadius) <= .001);
@@ -52,7 +52,7 @@ public class GameTests {
 		assertTrue(Math.abs(level.getMissile().getYPos() - 300) <= .001);
 		
 		//test missile movement at 0
-		level = new Level();
+		level = new Level(game);
 		level.moveMissile(0);
 		assertTrue(Math.abs(level.getMissile().getXPos() - (Game.gameRadius + 1)) <= .001);
 		assertTrue(Math.abs(level.getMissile().getYPos() - 0) <= .001);
@@ -63,7 +63,7 @@ public class GameTests {
 		assertTrue(Math.abs(level.getMissile().getYPos() - 0) <= .001);
 		
 		//test missile movement at 45
-		level = new Level();
+		level = new Level(game);
 		level.moveMissile(45);
 		assertTrue(Math.abs(level.getMissile().getXPos() - (Game.gameRadius + Math.cos(Math.toRadians(45)))) <= .001);
 		assertTrue(Math.abs(level.getMissile().getYPos() - Math.sin(Math.toRadians(45))) <= .001);
@@ -75,7 +75,7 @@ public class GameTests {
 		assertTrue(Math.abs(level.getMissile().getYPos() - 300*Math.sin(Math.toRadians(45))) <= .001);
 		
 		//test missile movement at 60
-		level = new Level();
+		level = new Level(game);
 		level.moveMissile(60);
 		assertTrue(Math.abs(level.getMissile().getXPos() - (Game.gameRadius + Math.cos(Math.toRadians(60)))) <= .001);
 		assertTrue(Math.abs(level.getMissile().getYPos() - Math.sin(Math.toRadians(60))) <= .001);
@@ -116,22 +116,25 @@ public class GameTests {
 	public void controlPanelTest() {
 		//Progress Panel Tests
 		//tests that we progress through the game
+		game.getControlPanel().setUserAngle(game.getLevels().get(0).getLevelAngle());
 		for (int i = 0; i < 300; i++) {
 			game.getLevels().get(0).moveMissile(game.getLevels().get(0).getLevelAngle());
 		}
 		assertTrue(game.getControlPanel().getProgress() == 1);
-		assertTrue(game.getLevels().get(0).isPassFail());
+		assertTrue(game.getLevels().get(0).passed());
 		
 		//tests that we progress when we miss and level is a fail
+		game.getControlPanel().setUserAngle(game.getLevels().get(1).getLevelAngle() + 20);
 		for (int i = 0; i < 300; i++) {
 			game.getLevels().get(1).moveMissile(game.getLevels().get(1).getLevelAngle() + 20);
 		}
-		assertTrue(game.getControlPanel().getProgress() == 1);
-		assertFalse(game.getLevels().get(1).isPassFail());
+		assertTrue(game.getControlPanel().getProgress() == 2);
+		assertFalse(game.getLevels().get(1).passed());
 		
 		
 		//Precision Panel Tests
 		//tests precision on hit
+		game.getControlPanel().setUserAngle(game.getLevels().get(2).getLevelAngle());
 		for (int i = 0; i < 300; i++) {
 			game.getLevels().get(2).moveMissile(game.getLevels().get(2).getLevelAngle());
 		}
@@ -139,10 +142,11 @@ public class GameTests {
 		assertTrue(game.getLevels().get(2).getPrecision() <= Game.tolerance);
 		
 		//tests precision on miss
+		game.getControlPanel().setUserAngle(game.getLevels().get(3).getLevelAngle() + 20);
 		for (int i = 0; i < 300; i++) {
-			game.getLevels().get(2).moveMissile(game.getLevels().get(2).getLevelAngle() + 20);
+			game.getLevels().get(3).moveMissile(game.getLevels().get(3).getLevelAngle() + 20);
 		}
-		assertTrue(game.getLevels().get(2).getPrecision() == game.getControlPanel().getPrecision());
-		assertFalse(game.getLevels().get(2).getPrecision() <= Game.tolerance);
+		assertTrue(game.getLevels().get(3).getPrecision() == game.getControlPanel().getPrecision());
+		assertFalse(game.getLevels().get(3).getPrecision() <= Game.tolerance);
 	}
 }
