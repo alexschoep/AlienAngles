@@ -2,8 +2,16 @@ package game;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Game extends JFrame{
 	public static final int tolerance = 5;
@@ -19,9 +27,12 @@ public class Game extends JFrame{
 	}
 	
 	public Game() {
+		newBackground();
 		setSize(1000, 1000);
 		setTitle("Alien Angles");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
 		
 		controlPanel = new ControlPanel();
 		levels = new ArrayList<Level>();
@@ -33,6 +44,43 @@ public class Game extends JFrame{
 		//game constructor
 	}
 	
+	public void newBackground() {
+		BufferedImage image = null;
+		Random rand = new Random();
+		String imageString;
+		int randInt = Math.abs(rand.nextInt()% 5) + 1;
+		System.out.println(randInt);
+
+		switch (randInt) {
+			case 1:  imageString = "/images/levelOne.jpg";
+				break;
+			case 2:  imageString = "/images/levelTwo.jpg";
+				break;
+			case 3:  imageString = "/images/levelThree.jpg";
+				break;
+			case 4:  imageString = "/images/levelFour.jpg";
+				break;
+			case 5:  imageString = "/images/levelFive.jpg";
+				break;
+			default: imageString = "/images/levelOne.jpg";
+				System.out.println("NO");
+				break;
+		}
+
+		try {
+
+			image = ImageIO.read(getClass().getResource(imageString));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		JLabel background = new JLabel(new ImageIcon(image));
+		background.setLayout(new BorderLayout());
+		background.setOpaque(true);
+		this.setContentPane(background);
+		//gives a new background to the panel
+	}
+	
 	public void draw() {
 		//calls draw for each level
 		//calls draw for control panel
@@ -41,9 +89,6 @@ public class Game extends JFrame{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
-		g.setColor(Color.BLACK);
-		g.drawRect(5, 5, 5, 5);
-		g.fillRect(5, 5, 5, 5);
 		repaint();
 	}
 	
@@ -61,6 +106,5 @@ public class Game extends JFrame{
 	
 	public static void main(String[] args) {
 		Game game = new Game();
-		game.setVisible(true);
 	}
 }
