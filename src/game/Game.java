@@ -52,23 +52,20 @@ public class Game extends JFrame{
 		System.out.println(randInt);
 
 		switch (randInt) {
-			case 1:  imageString = "/images/levelOne.jpg";
+			case 1:  imageString = "/levelOne.jpg";
 				break;
-			case 2:  imageString = "/images/levelTwo.jpg";
+			case 2:  imageString = "/levelTwo.jpg";
 				break;
-			case 3:  imageString = "/images/levelThree.jpg";
+			case 3:  imageString = "/levelThree.jpg";
 				break;
-			case 4:  imageString = "/images/levelFour.jpg";
+			case 4:  imageString = "/levelFour.jpg";
 				break;
-			case 5:  imageString = "/images/levelFive.jpg";
+			case 5:  imageString = "/levelFive.jpg";
 				break;
-			default: imageString = "/images/levelOne.jpg";
-				System.out.println("NO");
+			default: imageString = "/levelOne.jpg";
 				break;
 		}
-
 		try {
-
 			image = ImageIO.read(getClass().getResource(imageString));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
