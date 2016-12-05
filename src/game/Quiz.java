@@ -1,10 +1,14 @@
 package game;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 
-public class Quiz extends JPanel{
+public class Quiz extends JDialog{
 	private ArrayList<Question> quizQuestions;
 	private int score;
 	private Game game;
@@ -14,10 +18,16 @@ public class Quiz extends JPanel{
 		for (int i = 0; i < Game.numLevels; i++) {
 			quizQuestions.add(game.getLevels().get(i).getQuestion());
 		}
-	}
-	
-	public void draw() {
 		
+		setTitle("Quiz");
+		setSize(800, 600);
+		setLayout(new GridLayout(quizQuestions.size() + 1, 1));
+		
+		for (Question question : quizQuestions) {
+			add(question);
+		}
+		JButton submitButton = new JButton("Submit");
+		add(submitButton);
 	}
 	
 	public void checkAnswers() {

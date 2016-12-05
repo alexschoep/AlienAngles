@@ -92,10 +92,10 @@ public class GameTests {
 	public void quizTests() {
 		Quiz quiz = game.getQuiz();
 		ArrayList<Question> quizQuestions = new ArrayList<Question>();
-		quizQuestions.add(new Question(0));
-		quizQuestions.add(new Question(0));
-		quizQuestions.add(new Question(0));
-		quizQuestions.add(new Question(0));
+		quizQuestions.add(new Question(0, 1));
+		quizQuestions.add(new Question(0, 2));
+		quizQuestions.add(new Question(0, 3));
+		quizQuestions.add(new Question(0, 3));
 		//test if checkAnswer returns true on correct answer
 		Question questionOne = quizQuestions.get(0);
 		questionOne.setAnswer("Nonsense");

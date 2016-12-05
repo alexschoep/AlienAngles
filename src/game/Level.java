@@ -11,6 +11,7 @@ public class Level {
 	private int precision;
 	private Question question;
 	private Game game;
+	private int levelNumber;
 	
 	public Level(int angle, Game game) {
 		alien = new Alien(angle);
@@ -20,7 +21,18 @@ public class Level {
 	}
 	
 	public Level(Game game) {
-		question = new Question(levelAngle);
+		levelNumber = 1;
+		question = new Question(levelAngle, levelNumber);
+		Random random = new Random();
+		levelAngle = random.nextInt(181);
+		alien = new Alien(levelAngle);
+		missile = new Missile();
+		this.game = game;
+	}
+	
+	public Level(Game game, int levelNumber) {
+		this.levelNumber = levelNumber;
+		question = new Question(levelAngle, levelNumber);
 		Random random = new Random();
 		levelAngle = random.nextInt(181);
 		alien = new Alien(levelAngle);

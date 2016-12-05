@@ -1,14 +1,26 @@
 package game;
+import java.awt.GridLayout;
 import java.util.Random;
-import javax.swing.JPanel;
 
-public class Question{
+import javax.swing.ButtonGroup;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
+public class Question extends JPanel{
 	private String question;
 	private String rightAnswer;
 	private String wrongAnswer;
+	private int questionNumber;
 	
-	public Question(int angle) {
+	public Question(int angle, int questionNumber){
 		//takes angle from level and makes a question, a right answer, and a wrong answer
+		this.questionNumber = questionNumber;
 		Random random = new Random();
 		int rand = random.nextInt(3);
 		switch(rand) {
@@ -44,6 +56,19 @@ public class Question{
 					wrongAnswer = new Integer(random.nextInt(91)).toString();
 				}
 		}
+		
+		setLayout(new GridLayout(3, 1));
+	 	JTextField questionField = new JTextField(question, SwingConstants.LEFT);
+	 	questionField.setEditable(false);
+		JRadioButton rightAnswerButton = new JRadioButton(rightAnswer);
+		JRadioButton wrongAnswerButton = new JRadioButton(wrongAnswer);
+		ButtonGroup bg = new ButtonGroup();
+		bg.add(rightAnswerButton);
+		bg.add(wrongAnswerButton);
+		add(questionField);
+		add(rightAnswerButton);
+		add(wrongAnswerButton);
+		setBorder(new TitledBorder (new EtchedBorder(), "Question " + questionNumber));
 	}
 	
 	public String getQuestion() {

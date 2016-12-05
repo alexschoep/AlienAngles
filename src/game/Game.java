@@ -37,7 +37,7 @@ public class Game extends JFrame{
 		controlPanel = new ControlPanel();
 		levels = new ArrayList<Level>();
 		for (int i = 0; i < numLevels; i++) {
-		levels.add(new Level(this));
+		levels.add(new Level(this, i+1));
 		}
 		
 		quiz = new Quiz(this);
@@ -101,7 +101,12 @@ public class Game extends JFrame{
 		return quiz;
 	}
 	
+	public void quizSetVisible(boolean visible) {
+		quiz.setVisible(visible);
+	}
+	
 	public static void main(String[] args) {
 		Game game = new Game();
+		game.quizSetVisible(true);
 	}
 }
