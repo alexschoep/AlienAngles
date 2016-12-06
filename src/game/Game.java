@@ -1,7 +1,11 @@
 package game;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Label;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +16,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Game extends JFrame{
 	public static final int tolerance = 5;
@@ -21,6 +26,8 @@ public class Game extends JFrame{
 	private ArrayList<Level> levels;
 	private Quiz quiz;
 	private ControlPanel controlPanel;
+	private Protractor protractor;
+	private BorderLayout bL;
 	
 	public static Game getInstance() {
 		return instance;
@@ -28,11 +35,16 @@ public class Game extends JFrame{
 	
 	public Game() {
 		newBackground();
-		setSize(1000, 1000);
+		setSize(900, 900);
 		setTitle("Alien Angles");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		
+		
+		
+		//this is the size of the game always
+		
+		this.setResizable(false);
 		
 		controlPanel = new ControlPanel();
 		levels = new ArrayList<Level>();
@@ -42,6 +54,8 @@ public class Game extends JFrame{
 		
 		quiz = new Quiz(this);
 		//game constructor
+		protractor = new Protractor();
+		this.add(protractor, BorderLayout.CENTER);
 	}
 	
 	public void newBackground() {
@@ -49,8 +63,6 @@ public class Game extends JFrame{
 		Random rand = new Random();
 		String imageString;
 		int randInt = Math.abs(rand.nextInt()% 5) + 1;
-		System.out.println(randInt);
-
 		switch (randInt) {
 			case 1:  imageString = "/levelOne.jpg";
 				break;
@@ -104,9 +116,14 @@ public class Game extends JFrame{
 	public void quizSetVisible(boolean visible) {
 		quiz.setVisible(visible);
 	}
+	public void protractorSetVisible(boolean visible) {
+		protractor.setVisible(visible);
+	}
 	
 	public static void main(String[] args) {
 		Game game = new Game();
-		game.quizSetVisible(true);
+		game.quizSetVisible(false);
+		game.protractorSetVisible(true);
+		
 	}
 }

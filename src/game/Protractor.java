@@ -11,9 +11,13 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Protractor extends JLabel {
+	
 	private String imageString;
 	private BufferedImage image = null;
 	public Protractor() {
+		setVisible(false);
+		setHorizontalAlignment(JLabel.CENTER);
+		setVerticalAlignment(JLabel.CENTER);
 		imageString = "/protractor.png";
 		
 		try {
@@ -26,6 +30,6 @@ public class Protractor extends JLabel {
     }
 	
 	public void paintComponent(Graphics g) {
-		g.drawImage(image, 0, 0, null); 
+		g.drawImage(image, 150, 200, null); 
 	}
 }
