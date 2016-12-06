@@ -62,6 +62,7 @@ public class Game extends JFrame{
 		repaint();
 	}
 	
+	//selects a game background randomly from a set of images
 	public void newBackground() {
 		BufferedImage image = null;
 		Random rand = new Random();
@@ -106,6 +107,7 @@ public class Game extends JFrame{
 		return quiz;
 	}
 	
+	//sets quiz visible
 	public void quizSetVisible(boolean visible) {
 		quiz.setVisible(visible);
 	}

@@ -25,6 +25,7 @@ public class Protractor{
 		}
     }
 	
+	//draw method for protractor
 	public void draw(Graphics g) {
 		g.drawImage(image, 150, 200, null); 
 	}

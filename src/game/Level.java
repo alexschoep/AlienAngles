@@ -15,11 +15,11 @@ public class Level{
 	private Game game;
 	private int levelNumber;
 	
+	
 	public Level(int angle, Game game) {
 		alien = new Alien(angle);
 		missile = new Missile(game);
-		this.game = game;
-		
+		this.game = game;	
 	}
 	
 	public Level(Game game) {
@@ -32,6 +32,8 @@ public class Level{
 		this.game = game;
 	}
 	
+	//creates a level with a level number
+	//creates a missile and alien
 	public Level(Game game, int levelNumber) {
 		this.levelNumber = levelNumber;
 		Random random = new Random();
@@ -58,6 +60,7 @@ public class Level{
 		return alien;
 	}
 	
+	//moves the missile according to a passed in angle and checks for hits
 	public void moveMissile(int angle) {
 		if (precision == 1000) {
 			precision = Math.abs(angle-levelAngle);
@@ -79,6 +82,7 @@ public class Level{
 		game.repaint();
 	}
 	
+	//ends the level and increments progress
 	public void endLevel(boolean pass, Game game) {
 		this.pass = pass;
 		game.getControlPanel().incProgress(precision);

@@ -18,10 +18,13 @@ public class Display extends JPanel{
 		setBackground(Color.BLACK); 
 	}
 	
+	//sets protractor visible
 	public void protractorVisible(boolean visible) {
 		protractorVisible = visible;
 	}
 	
+	//draw component function
+	//draws protractor, alien, and missile
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
 		

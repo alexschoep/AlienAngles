@@ -38,6 +38,7 @@ public class Missile{
 		return yPos;
 	}
 	
+	//changes position based on a passed in angle
 	protected void changePosition(int angle) {
 		xPos += Math.cos(Math.toRadians(angle));
 		yPos += Math.sin(Math.toRadians(angle));

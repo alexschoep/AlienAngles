@@ -17,6 +17,7 @@ public class Quiz extends JDialog {
 	private Game game;
 	JButton submitButton;
 	
+	//creates a quiz panel
 	public Quiz(Game game) {
 		quizQuestions = new ArrayList<Question>();
 		for (int i = 0; i < Game.numLevels; i++) {
@@ -37,9 +38,9 @@ public class Quiz extends JDialog {
 		submitButton.addActionListener(submitButtonListener);
 	}
 	
+	//calls checkAnswer for each Question in quizQuestions
+	//increments score for each correct answer
 	public void checkAnswers() {
-		//calls checkAnswer for each Question in quizQuestions
-		//increments score for each correct answer
 		for (Question question : quizQuestions) {
 			if (question.checkAnswer()) {
 				score++;
@@ -55,11 +56,12 @@ public class Quiz extends JDialog {
 		return quizQuestions;
 	}
 	
+	//action listener for submit button
 	private class ButtonListener implements ActionListener {
 		private ButtonListener() {}
 		public void actionPerformed(ActionEvent e) {
 			checkAnswers();
-			System.out.println("your score is " + getScore());
+			JOptionPane.showMessageDialog(submitButton, "Your score is " + getScore(), "Alert", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 }
