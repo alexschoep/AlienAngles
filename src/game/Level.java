@@ -10,14 +10,14 @@ public class Level{
 	private Alien alien;
 	private Missile missile;
 	private boolean pass;
-	private int precision;
+	private int precision = 1000;
 	private Question question;
 	private Game game;
 	private int levelNumber;
 	
 	public Level(int angle, Game game) {
 		alien = new Alien(angle);
-		missile = new Missile();
+		missile = new Missile(game);
 		this.game = game;
 		
 	}
@@ -28,7 +28,7 @@ public class Level{
 		Random random = new Random();
 		levelAngle = random.nextInt(181);
 		alien = new Alien(levelAngle);
-		missile = new Missile();
+		missile = new Missile(game);
 		this.game = game;
 	}
 	
@@ -38,7 +38,7 @@ public class Level{
 		Random random = new Random();
 		levelAngle = random.nextInt(181);
 		alien = new Alien(levelAngle);
-		missile = new Missile();
+		missile = new Missile(game);
 		this.game = game;
 	}
 	
@@ -59,7 +59,9 @@ public class Level{
 	}
 	
 	public void moveMissile(int angle) {
-		precision = Math.abs(angle-levelAngle);
+		if (precision == 1000) {
+			precision = Math.abs(angle-levelAngle);
+		}
 		moves++;
 		missile.changePosition(angle);
 		if (alien.checkHit(missile.getXPos(), missile.getYPos())) {
@@ -72,6 +74,9 @@ public class Level{
 		if (moves == Game.gameRadius && !alien.alive()) {
 			endLevel(true, game);
 		}
+		
+		game.getDisplay().repaint();
+		game.repaint();
 	}
 	
 	public void endLevel(boolean pass, Game game) {

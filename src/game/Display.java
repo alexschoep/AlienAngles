@@ -11,7 +11,6 @@ public class Display extends JPanel{
 	public Display(Game game) {
 		this.game = game;
 		protractor = new Protractor();
-		
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -19,5 +18,6 @@ public class Display extends JPanel{
 		protractor.draw(g);
 		game.getLevels().get(0).getAlien().draw(g);
 		game.getLevels().get(0).getMissile().draw(g);
+		System.out.println("sdgs");
 	}
 }

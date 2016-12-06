@@ -25,8 +25,10 @@ public class ControlPanel extends JPanel{
 	private JTextField precisionField;
 	private JTextField progressField;
 	public JButton launchButton;
+	Game game;
 	
-	public ControlPanel() {
+	public ControlPanel(Game game) {
+		this.game = game;
 		
 		setLayout(new GridLayout(1, 4));
 
@@ -50,8 +52,19 @@ public class ControlPanel extends JPanel{
 			//add launch sequence 
 			if(launched) {
 				JOptionPane.showMessageDialog(launchButton, "Launch sequence already commenced. Please wait!", "Alert", JOptionPane.INFORMATION_MESSAGE);
+			} else {
+				launched = true;
+				//game.getProtractor().setVisible();
+				for (int i = 0; i < Game.gameRadius; i++) {
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					game.getLevels().get(progress - 1).moveMissile(userAngle);
+				}
 			}
-			launched = true;
 		}
 	}
 	

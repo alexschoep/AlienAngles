@@ -13,9 +13,11 @@ public class Missile{
 	private boolean missileHit;
 	private String imageString;
 	private BufferedImage image = null;
+	Game game;
 	
-	public Missile() {
+	public Missile(Game game) {
 		super();
+		this.game = game;
 		imageString = "/missile.png";
 		
 		try {
