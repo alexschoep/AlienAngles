@@ -49,12 +49,19 @@ public class ControlPanel extends JPanel{
 	private class ButtonListener implements ActionListener {
 		private ButtonListener() {}
 		public void actionPerformed(ActionEvent e) {
+			try {
+				userAngle = (int) Integer.parseInt(angleGuess.getText());
+			} catch (NumberFormatException e2) {
+				JOptionPane.showMessageDialog(launchButton, "You must enter a launch angle!", "Alert", JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
 			//add launch sequence 
 			if(launched) {
 				JOptionPane.showMessageDialog(launchButton, "Launch sequence already commenced. Please wait!", "Alert", JOptionPane.INFORMATION_MESSAGE);
 			} else {
+				angleGuess.setEditable(false);
 				launched = true;
-				//game.getProtractor().setVisible();
+				game.getDisplay().protractorVisible(true);
 				for (int i = 0; i < Game.gameRadius; i++) {
 					try {
 						Thread.sleep(10);
@@ -74,7 +81,7 @@ public class ControlPanel extends JPanel{
 	
 	private JPanel createAngleField() {
 		JLabel label = new JLabel("Angle Guess");
-		this.angleGuess = new JTextField(30);
+		this.angleGuess = new JTextField();
 		this.angleGuess.setEditable(true);
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(1, 0));
@@ -86,7 +93,7 @@ public class ControlPanel extends JPanel{
 
 	private JPanel createPrecisionField() {
 		JLabel label = new JLabel("Precision");
-		this.precisionField = new JTextField(30);
+		this.precisionField = new JTextField(precision);
 		this.precisionField.setEditable(false);
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(1, 0));
@@ -127,8 +134,21 @@ public class ControlPanel extends JPanel{
 	}
 
 	public void incProgress(int precision) {
-		progress++;
 		setPrecision(precision);
+		precisionField.setText(Integer.toString(precision));
+		progressField.setText(progress + " / " + Game.numLevels);
+		if (game.getLevels().get(progress - 1).passed()) {
+			JOptionPane.showMessageDialog(launchButton, "Hit!", "Alert", JOptionPane.INFORMATION_MESSAGE);
+		} else {
+			JOptionPane.showMessageDialog(launchButton, "Miss!", "Alert", JOptionPane.INFORMATION_MESSAGE);
+		}
+		game.repaint();
+		progress++;
+		launched = false;
+		angleGuess.setEditable(true);
+		game.getDisplay().protractorVisible(false);
+		//if progress == progress + 1)
+		
 	}
 
 	public void setUserAngle(int userAngle) {
