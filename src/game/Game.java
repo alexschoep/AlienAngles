@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -18,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Game extends JFrame{
 	public static final int tolerance = 5;
@@ -28,35 +30,36 @@ public class Game extends JFrame{
 	private Quiz quiz;
 	private ControlPanel controlPanel;
 	private Protractor protractor;
+	private Display display;
 	
 	public static Game getInstance() {
 		return instance;
 	}
 	
 	public Game() {
+		display = new Display(this);
+		
 		newBackground();
 		setSize(900, 900);
 		setTitle("Alien Angles");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
 		
 		this.setResizable(false);
 		levels = new ArrayList<Level>();
 		controlPanel = new ControlPanel();
 		
-		
 		for (int i = 0; i < numLevels; i++) {
 			levels.add(new Level(this, i+1));
 		}
 		
-		
 		quiz = new Quiz(this);
 		protractor = new Protractor();
 		
-		
 		this.add(controlPanel, BorderLayout.SOUTH);
-		this.add(protractor, BorderLayout.CENTER);
-		this.add(levels.get(0).getAlien(), BorderLayout.NORTH);
+		this.add(display, BorderLayout.CENTER);
+		
+		setVisible(true);
+		repaint();
 	}
 	
 	public void newBackground() {
@@ -91,18 +94,6 @@ public class Game extends JFrame{
 		//gives a new background to the panel
 	}
 	
-	public void draw() {
-		//calls draw for each level
-		//calls draw for control panel
-		//draws background
-	}
-	
-	
-	public void paintComponent(Graphics g) {
-		super.paintComponents(g);
-		repaint();
-	}
-	
 	public ArrayList<Level> getLevels() {
 		return levels;
 	}
@@ -118,15 +109,9 @@ public class Game extends JFrame{
 	public void quizSetVisible(boolean visible) {
 		quiz.setVisible(visible);
 	}
-	public void protractorSetVisible(boolean visible) {
-		protractor.setVisible(visible);
-	}
 	
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.quizSetVisible(false);
-		game.protractorSetVisible(true);
-		
-		
 	}
 }

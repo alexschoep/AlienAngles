@@ -50,9 +50,6 @@ public class Missile extends JLabel{
 		missileHit = true;
 	}
 	
-	public void draw() {
-	}
-	
 	public void paintComponent(Graphics g) {
 		int x = (int) xPos;
 		int y = (int) yPos;

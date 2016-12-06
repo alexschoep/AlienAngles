@@ -36,13 +36,11 @@ public class ControlPanel extends JPanel{
 		ButtonListener launchButtonListener = new ButtonListener();
 		launchButton.addActionListener(launchButtonListener);
 
-
 		add(createAngleField());
 		add(createPrecisionField());
 		add(createLevelField());
 		add(launchButton);
-
-
+		
 		setVisible(true);
 	}
 	

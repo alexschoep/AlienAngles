@@ -10,13 +10,11 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class Protractor extends JLabel {
+public class Protractor{
 	
 	private String imageString;
 	private BufferedImage image = null;
 	public Protractor() {
-		super();
-		setVisible(false);
 		imageString = "/protractor.png";
 		
 		try {
@@ -25,10 +23,9 @@ public class Protractor extends JLabel {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
     }
 	
-	public void paintComponent(Graphics g) {
+	public void draw(Graphics g) {
 		g.drawImage(image, 150, 200, null); 
 	}
 }

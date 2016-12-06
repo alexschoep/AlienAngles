@@ -58,11 +58,6 @@ public class Level{
 		return alien;
 	}
 	
-	public void draw() {
-		//draws the level
-		//calls missile.draw and alien.draw
-	}
-	
 	public void moveMissile(int angle) {
 		precision = Math.abs(angle-levelAngle);
 		moves++;

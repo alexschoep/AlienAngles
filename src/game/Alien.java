@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-public class Alien extends JLabel{
+public class Alien{
 	
 	public static final double hitDistance = Game.gameRadius*Math.sin(Math.toRadians(Game.tolerance));
 	private double xPos;
@@ -19,8 +19,6 @@ public class Alien extends JLabel{
 	private BufferedImage image = null;
 	
 	public Alien(int angle) {
-		super();
-		setVisible(true);
 		imageString = "/alien.png";
 		
 		try {
@@ -32,6 +30,11 @@ public class Alien extends JLabel{
 		
 		this.xPos = Game.gameRadius*Math.cos(Math.toRadians((double) angle)) + Game.gameRadius;
 		this.yPos = Game.gameRadius*Math.sin(Math.toRadians((double) angle));
+	}
+	
+	public void draw(Graphics g) {
+		System.out.println("dfhcwghw");
+		g.drawImage(image, (int) xPos, (int) yPos, null);
 	}
 	
 	public double getXPos() {
@@ -53,10 +56,6 @@ public class Alien extends JLabel{
 	
 	protected void killAlien() {
 		alive = false;
-		setVisible(false);
-	}
-
-	public void draw(Graphics g) {
 	}
 	
 	public void paintComponent(Graphics g) {
