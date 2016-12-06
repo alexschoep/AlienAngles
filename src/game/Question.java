@@ -29,7 +29,6 @@ public class Question extends JPanel {
 	//randomly generates a question from 3 possible question types
 	//creates a question panel
 	public Question(int angle, int questionNumber){
-		System.out.println(angle);
 		//takes angle from level and makes a question, a right answer, and a wrong answer
 		this.questionNumber = questionNumber;
 		Random random = new Random();
