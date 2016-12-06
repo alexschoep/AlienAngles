@@ -1,4 +1,5 @@
 package game;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -12,10 +13,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 public class ControlPanel extends JPanel{
+	private boolean switchDraw = false;
+	
 	private int userAngle;
 	private int precision;
 	private int progress = 1;
@@ -63,13 +67,16 @@ public class ControlPanel extends JPanel{
 				launched = true;
 				game.getDisplay().protractorVisible(true);
 				for (int i = 0; i < Game.gameRadius; i++) {
-					try {
-						Thread.sleep(10);
-					} catch (InterruptedException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+					try
+					{
+					     Thread.sleep(1);
+					}
+					catch (Exception ev)
+					{
+					     ev.printStackTrace();
 					}
 					game.getLevels().get(progress - 1).moveMissile(userAngle);
+					game.getDisplay().paintImmediately(0, 0, 900, 900);
 				}
 			}
 		}
@@ -156,6 +163,7 @@ public class ControlPanel extends JPanel{
 	public void setUserAngle(int userAngle) {
 		this.userAngle = userAngle;
 	}
+
 
 	
 }

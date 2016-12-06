@@ -1,17 +1,21 @@
 package game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
 public class Display extends JPanel{
+	
 	Protractor protractor;
 	Game game;
 	private boolean protractorVisible = false;
 	
 	public Display(Game game) {
+		setOpaque(true);
 		this.game = game;
 		protractor = new Protractor();
+		setBackground(Color.BLACK); 
 	}
 	
 	public void protractorVisible(boolean visible) {
@@ -20,6 +24,7 @@ public class Display extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
+		
 		if (protractorVisible) {
 			protractor.draw(g);
 		}
