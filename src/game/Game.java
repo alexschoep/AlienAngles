@@ -52,6 +52,9 @@ public class Game extends JFrame{
 			levels.add(new Level(this, i+1));
 		}
 		
+		for (int i = 0; i < numLevels; i++) {
+			System.out.println(levels.get(i).getLevelAngle());
+		}
 		quiz = new Quiz(this);
 		protractor = new Protractor();
 		
