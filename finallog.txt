@@ -1,0 +1,257 @@
+commit f8d0ae848756a469ce20e0a44e13a7ffb8714f4a
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 23:52:03 2016 -0700
+
+    end
+
+commit 6914b7e953d892172134f94dec8ffa5e71a6fcc0
+Merge: f82d8c4 d96a187
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 23:49:41 2016 -0700
+
+    Merge branch 'master' of https://github.com/alexschoep/AlienAnglesGDASSS
+
+commit f82d8c42a84f5ec8fccb3daefd600a2c767f4796
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 23:49:26 2016 -0700
+
+    fixed comments
+
+commit d96a18750f2c78a147356efe59079ded529cbf07
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 23:49:23 2016 -0700
+
+    finishing comments
+
+commit b025593ac888b3177f7bc8755c8c2e36fd4cf1b3
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 23:40:10 2016 -0700
+
+    game logic completed
+
+commit e8af3c23a8d6936f008700579946be857e45b10b
+Merge: 2cd0862 a4ed1af
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 23:10:58 2016 -0700
+
+    Merge branch 'master' of https://github.com/alexschoep/AlienAnglesGDASSS
+
+commit 2cd08620cbed77458a521361e941c8f40d828306
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 23:10:50 2016 -0700
+
+    worked on quiz
+
+commit a4ed1afe8551997e8e46494d556ea227eddf494f
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 23:08:39 2016 -0700
+
+    animating
+
+commit c9b03844a703b39e5cc1d6b4723e06afa796c094
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 22:28:46 2016 -0700
+
+    Fixed progress
+
+commit 4161cb3c6ca9de668b3312093378c3b30092d82d
+Merge: 18e60cd a0438e4
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 22:17:25 2016 -0700
+
+    Merge branch 'master' of https://github.com/alexschoep/AlienAnglesGDASSS
+
+commit 18e60cd767a07a55ac7cbd8ceb35772ddc016784
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 22:17:13 2016 -0700
+
+    Took out extra printing
+
+commit a0438e45b14b6ede6b41d02ab7be2f2d0170b98c
+Merge: f40f523 6afac1d
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 22:15:49 2016 -0700
+
+    Merge branch 'master' of https://github.com/alexschoep/AlienAnglesGDASSS
+
+commit f40f52393dbc8e29de42ddfb53fa0ef877f9737d
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 22:15:33 2016 -0700
+
+    worked on game logic
+
+commit 6afac1dedd207862473738c667f3b2350b125158
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 22:15:31 2016 -0700
+
+    Fixing display of alien
+
+commit ece992629b2fb880fbe94cf6845a5c26b819d067
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 22:07:25 2016 -0700
+
+    worked on game logic
+
+commit 46b9b49cbd37b9e2a0d9ba2e07750445a1a784b6
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 21:20:45 2016 -0700
+
+    worked on missle movement updating
+
+commit 7814093348d115adb4c00d667920d4cf958ec759
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 20:51:20 2016 -0700
+
+    Finished missile, alien, dislpay
+
+commit 72566cd0cf14241fb62ded523ef1bb1712ef4cb9
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 20:26:56 2016 -0700
+
+    got the alien and protractor graphics working
+
+commit f346fc1dfcd99871bbfb143dd2080bcaf95af184
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 19:18:56 2016 -0700
+
+    Adding more to GUI
+
+commit 10945282d0207abb1c029b3783e52dd3956b1f76
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 18:24:48 2016 -0700
+
+    Finished Control Panel
+
+commit b31f0c97c52391d4b31b7de69d99d5a9ebe3fd0f
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 17:57:34 2016 -0700
+
+    Adding more to control panel
+
+commit 6657f7f34148863ab1d50cd6f8d8e3b71d38aebf
+Merge: f717ed6 f8755d2
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 17:39:13 2016 -0700
+
+    Merge branch 'master' of https://github.com/alexschoep/AlienAnglesGDASSS
+
+commit f717ed6e8c4b11167ab5b0c444dfc372ec566405
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 17:38:59 2016 -0700
+
+    Finished protractor
+
+commit f8755d2906100f6af9ac8eb26b0075a1c08c80d6
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 17:37:18 2016 -0700
+
+    worked on control panel gui
+
+commit 0c0d3b3a4970fb4fd296267ded0a1973279d4886
+Merge: c1c246c 1708125
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 16:59:08 2016 -0700
+
+    Merge branch 'master' of https://github.com/alexschoep/AlienAnglesGDASSS
+
+commit c1c246c85078cdd6f87c8c75710f5dacd376fde5
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Dec 5 16:58:46 2016 -0700
+
+    created quiz GUI
+
+commit 1708125accf3b6cd59d1d3900e7d62110f96c777
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 16:54:52 2016 -0700
+
+    Adding protractor class
+
+commit 79292733e9f83d2c37225b549923105572f3a248
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Mon Dec 5 16:12:54 2016 -0700
+
+    Fixing issue where pulling didn't grab images
+
+commit 025439cc719e77e9b4942293feee1720ad396c9d
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Sat Dec 3 16:13:50 2016 -0700
+
+    Added all of the background images
+
+commit de7a642d46868bad836356c3717202db115cac88
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Fri Dec 2 11:42:44 2016 -0700
+
+    started working on GUI
+
+commit 5a1600532d48283f9ef52e8c1e6ecf529d5f3ca8
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Fri Dec 2 11:30:07 2016 -0700
+
+    implemented quiz. done as pair programming
+
+commit a38f393de8c32d73f532949a426543434d5b2ed6
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Thu Dec 1 21:50:27 2016 -0700
+
+    got tests to pass for control panel, all tests pass
+
+commit f11f73497071e11e29c8b10544b3bbaa0d239e0b
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Thu Dec 1 11:59:05 2016 -0700
+
+    got missle hit tests to pass
+
+commit 9d931e47fd83b1100496cf3dc9dafbecb2a3839c
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Tue Nov 29 11:55:39 2016 -0700
+
+    got missile movement and missile hit tests to pass
+
+commit f0dde58a6e0af0c670634cbacfb334bcbcd4115e
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Tue Nov 29 11:23:53 2016 -0700
+
+    worked on misslie motion
+
+commit 44fc02553d43af2ead763595b5a69fe52a85bdcf
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Tue Nov 29 10:52:09 2016 -0700
+
+    started on game logic
+
+commit 20a02236f8a4aa0e3da56b8a4ee47fc947d24852
+Author: Garrett Daly <gdaly@mymail.mines.edu>
+Date:   Tue Nov 22 23:30:05 2016 -0700
+
+    Finishing failing tests
+
+commit 3f303a72f6ccf37ff136ad30c1baaa8af1df9286
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Tue Nov 22 12:06:10 2016 -0700
+
+    worked more on game tests
+
+commit fb5871469303bcd5a7f1b5403d6cda9efb442cd9
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Tue Nov 22 10:55:25 2016 -0700
+
+    started adding in tests
+
+commit b5388bde5975518eb35f6b69f00e89e786fdfc60
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Nov 21 20:50:22 2016 -0700
+
+    created class skeletons for most classes
+
+commit 30704c3bc68b2cdcc4ce3ee4dd0eed9a87a9cd72
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Nov 21 20:02:10 2016 -0700
+
+    added alien class
+
+commit 911d6afb92fa1faea0ddc8f06d6441bb9f8f447b
+Author: Alexander Schoep <aschoep@adit.mines.edu>
+Date:   Mon Nov 21 19:58:05 2016 -0700
+
+    initial commit
