@@ -10,7 +10,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 public class Alien{
-	
+	//set a hitDistance as a form of tolerance
 	public static final double hitDistance = Game.gameRadius*Math.sin(Math.toRadians(Game.tolerance));
 	private double xPos;
 	private double yPos;
@@ -19,15 +19,16 @@ public class Alien{
 	private BufferedImage image = null;
 	
 	public Alien(int angle) {
+		//points to our image for our alien
 		imageString = "/alien.png";
 		
 		try {
 			image = ImageIO.read(getClass().getResource(imageString));
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+			//print the error
 			e1.printStackTrace();
 		}
-		
+		//this updates the position to be based on radial geometry
 		this.xPos = Game.gameRadius*Math.cos(Math.toRadians((double) angle)) + Game.gameRadius;
 		this.yPos = Game.gameRadius*Math.sin(Math.toRadians((double) angle));
 	}

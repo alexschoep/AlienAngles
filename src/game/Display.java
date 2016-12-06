@@ -6,16 +6,15 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class Display extends JPanel{
-	
+	//add the vars to the panel
 	Protractor protractor;
 	Game game;
 	private boolean protractorVisible = false;
 	
 	public Display(Game game) {
-		setOpaque(true);
+		//instantiate with game and a protractor
 		this.game = game;
 		protractor = new Protractor();
-		setBackground(Color.BLACK); 
 	}
 	
 	public void protractorVisible(boolean visible) {
@@ -24,7 +23,7 @@ public class Display extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
-		
+		//paint all the components
 		if (protractorVisible) {
 			protractor.draw(g);
 		}
