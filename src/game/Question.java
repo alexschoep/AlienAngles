@@ -1,7 +1,11 @@
 package game;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Enumeration;
 import java.util.Random;
 
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -12,11 +16,16 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-public class Question extends JPanel{
+public class Question extends JPanel {
 	private String question;
 	private String rightAnswer;
 	private String wrongAnswer;
 	private int questionNumber;
+	private JRadioButton rightAnswerButton;
+	private JRadioButton wrongAnswerButton;
+	ButtonGroup bg;
+	private String selectedAnswer;
+	
 	
 	public Question(int angle, int questionNumber){
 		//takes angle from level and makes a question, a right answer, and a wrong answer
@@ -60,9 +69,9 @@ public class Question extends JPanel{
 		setLayout(new GridLayout(3, 1));
 	 	JTextField questionField = new JTextField(question, SwingConstants.LEFT);
 	 	questionField.setEditable(false);
-		JRadioButton rightAnswerButton = new JRadioButton(rightAnswer);
-		JRadioButton wrongAnswerButton = new JRadioButton(wrongAnswer);
-		ButtonGroup bg = new ButtonGroup();
+		rightAnswerButton = new JRadioButton(rightAnswer);
+		wrongAnswerButton = new JRadioButton(wrongAnswer);
+		bg = new ButtonGroup();
 		bg.add(rightAnswerButton);
 		bg.add(wrongAnswerButton);
 		add(questionField);
@@ -84,11 +93,27 @@ public class Question extends JPanel{
 	}
 	
 	public boolean checkAnswer(String answer) {
-		return rightAnswer.equals(answer);
+		return answer.equals(rightAnswer);
+	}
+	
+	public boolean checkAnswer() {
+		return selectedAnswer.equals(rightAnswer);
 	}
 
 	public void setAnswer(String string) {
 		rightAnswer = string;
+		
+	}
+	
+	private class RadioButtonListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			if (rightAnswerButton.isSelected()) {
+				selectedAnswer = rightAnswer;
+			} else {
+				selectedAnswer = wrongAnswer;
+			}
+		}
 		
 	}
 }

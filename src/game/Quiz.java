@@ -2,16 +2,20 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class Quiz extends JDialog{
+public class Quiz extends JDialog {
 	private ArrayList<Question> quizQuestions;
 	private int score;
 	private Game game;
+	JButton submitButton;
 	
 	public Quiz(Game game) {
 		quizQuestions = new ArrayList<Question>();
@@ -26,13 +30,21 @@ public class Quiz extends JDialog{
 		for (Question question : quizQuestions) {
 			add(question);
 		}
-		JButton submitButton = new JButton("Submit");
+		submitButton = new JButton("Submit");
 		add(submitButton);
+		
+		ButtonListener submitButtonListener = new ButtonListener();
+		submitButton.addActionListener(submitButtonListener);
 	}
 	
 	public void checkAnswers() {
 		//calls checkAnswer for each Question in quizQuestions
 		//increments score for each correct answer
+		for (Question question : quizQuestions) {
+			if (question.checkAnswer()) {
+				score++;
+			}
+		}
 	}
 	
 	public int getScore() {
@@ -43,5 +55,10 @@ public class Quiz extends JDialog{
 		return quizQuestions;
 	}
 	
-	//there will be an action listener in this class, questions can just be radio buttons
+	private class ButtonListener implements ActionListener {
+		private ButtonListener() {}
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("your score is " + getScore());
+		}
+	}
 }

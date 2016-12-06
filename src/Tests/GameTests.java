@@ -125,7 +125,7 @@ public class GameTests {
 		for (int i = 0; i < 300; i++) {
 			game.getLevels().get(0).moveMissile(game.getLevels().get(0).getLevelAngle());
 		}
-		assertTrue(game.getControlPanel().getProgress() == 1);
+		assertTrue(game.getControlPanel().getProgress() == 2);
 		assertTrue(game.getLevels().get(0).passed());
 		
 		//tests that we progress when we miss and level is a fail
@@ -133,7 +133,7 @@ public class GameTests {
 		for (int i = 0; i < 300; i++) {
 			game.getLevels().get(1).moveMissile(game.getLevels().get(1).getLevelAngle() + 20);
 		}
-		assertTrue(game.getControlPanel().getProgress() == 2);
+		assertTrue(game.getControlPanel().getProgress() == 1);
 		assertFalse(game.getLevels().get(1).passed());
 		
 		
