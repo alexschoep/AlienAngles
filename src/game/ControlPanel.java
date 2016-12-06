@@ -147,7 +147,9 @@ public class ControlPanel extends JPanel{
 		launched = false;
 		angleGuess.setEditable(true);
 		game.getDisplay().protractorVisible(false);
-		//if progress == progress + 1)
+		if (progress == Game.numLevels + 1) {
+			game.quizSetVisible(true);
+		}
 		
 	}
 
