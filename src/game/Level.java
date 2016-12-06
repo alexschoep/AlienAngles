@@ -61,7 +61,6 @@ public class Level{
 	public void moveMissile(int angle) {
 		if (precision == 1000) {
 			precision = Math.abs(angle-levelAngle);
-			System.out.println(angle + " " + levelAngle);
 		}
 		moves++;
 		missile.changePosition(angle);
