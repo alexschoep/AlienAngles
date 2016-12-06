@@ -15,9 +15,8 @@ public class Protractor extends JLabel {
 	private String imageString;
 	private BufferedImage image = null;
 	public Protractor() {
+		super();
 		setVisible(false);
-		setHorizontalAlignment(JLabel.CENTER);
-		setVerticalAlignment(JLabel.CENTER);
 		imageString = "/protractor.png";
 		
 		try {

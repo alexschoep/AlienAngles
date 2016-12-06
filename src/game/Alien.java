@@ -1,14 +1,35 @@
 package game;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
-public class Alien {
+import javax.imageio.ImageIO;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+
+public class Alien extends JLabel{
+	
 	public static final double hitDistance = Game.gameRadius*Math.sin(Math.toRadians(Game.tolerance));
 	private double xPos;
 	private double yPos;
 	private boolean alive = true;
+	private String imageString;
+	private BufferedImage image = null;
 	
 	public Alien(int angle) {
+		super();
+		setVisible(true);
+		imageString = "/alien.png";
+		
+		try {
+			image = ImageIO.read(getClass().getResource(imageString));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		this.xPos = Game.gameRadius*Math.cos(Math.toRadians((double) angle)) + Game.gameRadius;
 		this.yPos = Game.gameRadius*Math.sin(Math.toRadians((double) angle));
 	}
@@ -32,8 +53,15 @@ public class Alien {
 	
 	protected void killAlien() {
 		alive = false;
+		setVisible(false);
 	}
 
 	public void draw(Graphics g) {
+	}
+	
+	public void paintComponent(Graphics g) {
+		int x = (int) xPos;
+		int y = (int) yPos;
+		g.drawImage(image, 50, 50, null); 
 	}
 }

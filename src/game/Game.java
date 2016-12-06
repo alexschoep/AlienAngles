@@ -16,6 +16,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 public class Game extends JFrame{
@@ -27,7 +28,6 @@ public class Game extends JFrame{
 	private Quiz quiz;
 	private ControlPanel controlPanel;
 	private Protractor protractor;
-	private BorderLayout bL;
 	
 	public static Game getInstance() {
 		return instance;
@@ -40,21 +40,23 @@ public class Game extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		
-		//this is the size of the game always
-		
 		this.setResizable(false);
-		
-		controlPanel = new ControlPanel();
 		levels = new ArrayList<Level>();
+		controlPanel = new ControlPanel();
+		
+		
 		for (int i = 0; i < numLevels; i++) {
-		levels.add(new Level(this, i+1));
+			levels.add(new Level(this, i+1));
 		}
 		
+		
 		quiz = new Quiz(this);
-		add(controlPanel, BorderLayout.SOUTH);
-		//game constructor
 		protractor = new Protractor();
+		
+		
+		this.add(controlPanel, BorderLayout.SOUTH);
 		this.add(protractor, BorderLayout.CENTER);
+		this.add(levels.get(0).getAlien(), BorderLayout.NORTH);
 	}
 	
 	public void newBackground() {
@@ -95,6 +97,7 @@ public class Game extends JFrame{
 		//draws background
 	}
 	
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
 		repaint();
@@ -123,6 +126,7 @@ public class Game extends JFrame{
 		Game game = new Game();
 		game.quizSetVisible(false);
 		game.protractorSetVisible(true);
+		
 		
 	}
 }

@@ -2,7 +2,9 @@ package game;
 
 import java.util.Random;
 
-public class Level {
+import javax.swing.JPanel;
+
+public class Level{
 	private int moves = 0;
 	private int levelAngle;
 	private Alien alien;

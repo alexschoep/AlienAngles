@@ -18,7 +18,7 @@ import javax.swing.border.TitledBorder;
 public class ControlPanel extends JPanel{
 	private int userAngle;
 	private int precision;
-	private int progress = 0;
+	private int progress = 1;
 	private boolean launched = false;
 	
 	private JTextField angleGuess;
