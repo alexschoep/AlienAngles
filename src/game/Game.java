@@ -6,7 +6,9 @@ import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Label;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -37,6 +39,7 @@ public class Game extends JFrame{
 	}
 	
 	public Game() {
+		//get all of the settings correct and add all of the things
 		display = new Display(this);
 		
 		newBackground();
@@ -54,17 +57,18 @@ public class Game extends JFrame{
 		
 		quiz = new Quiz(this);
 		protractor = new Protractor();
-		
+		//add to jframe
 		this.add(controlPanel, BorderLayout.SOUTH);
 		this.add(display, BorderLayout.CENTER);
-		
+		//repainting
 		setVisible(true);
 		repaint();
 	}
 	
 	//selects a game background randomly from a set of images
 	public void newBackground() {
-		BufferedImage image = null;
+		//gets the background images
+		Image image = null;
 		Random rand = new Random();
 		String imageString;
 		int randInt = Math.abs(rand.nextInt()% 5) + 1;
@@ -82,12 +86,7 @@ public class Game extends JFrame{
 			default: imageString = "/levelOne.jpg";
 				break;
 		}
-		try {
-			image = ImageIO.read(getClass().getResource(imageString));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		image = Toolkit.getDefaultToolkit().getImage(getClass().getResource(imageString));
 		JLabel background = new JLabel(new ImageIcon(image));
 		background.setLayout(new BorderLayout());
 		background.setOpaque(true);

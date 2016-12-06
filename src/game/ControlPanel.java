@@ -1,25 +1,19 @@
 package game;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.Timer;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 public class ControlPanel extends JPanel{
-	private boolean switchDraw = false;
-	
+	//sets our vars
 	private int userAngle;
 	private int precision;
 	private int progress = 1;
@@ -33,15 +27,16 @@ public class ControlPanel extends JPanel{
 	
 	public ControlPanel(Game game) {
 		this.game = game;
-		
+		//set the layout
 		setLayout(new GridLayout(1, 4));
-
+		//manually give more height
 		Dimension d = new Dimension(225,100);
+		//launch button
 		JButton launchButton = new JButton("LAUNCH");
 		launchButton.setPreferredSize(d);
 		ButtonListener launchButtonListener = new ButtonListener();
 		launchButton.addActionListener(launchButtonListener);
-
+		//add to the panel with functions
 		add(createAngleField());
 		add(createPrecisionField());
 		add(createLevelField());
@@ -50,6 +45,7 @@ public class ControlPanel extends JPanel{
 		setVisible(true);
 	}
 	
+	//buton listener to check when launch is hit what happens
 	private class ButtonListener implements ActionListener {
 		private ButtonListener() {}
 		public void actionPerformed(ActionEvent e) {
@@ -61,6 +57,7 @@ public class ControlPanel extends JPanel{
 			}
 			//add launch sequence 
 			if(launched) {
+				//open dialog
 				JOptionPane.showMessageDialog(launchButton, "Launch sequence already commenced. Please wait!", "Alert", JOptionPane.INFORMATION_MESSAGE);
 			} else {
 				angleGuess.setEditable(false);
@@ -75,6 +72,7 @@ public class ControlPanel extends JPanel{
 					{
 					     ev.printStackTrace();
 					}
+					//this repaints to give a trail to the rocket
 					game.getLevels().get(progress - 1).moveMissile(userAngle);
 					game.getDisplay().paintImmediately(0, 0, 900, 900);
 				}
@@ -82,11 +80,13 @@ public class ControlPanel extends JPanel{
 		}
 	}
 	
+	
 	public JButton getLaunchButton() {
 		return launchButton;
 	}
 	
 	private JPanel createAngleField() {
+		//creates the angle field with classic layout
 		JLabel label = new JLabel("Angle Guess");
 		this.angleGuess = new JTextField();
 		this.angleGuess.setEditable(true);
@@ -99,6 +99,7 @@ public class ControlPanel extends JPanel{
 	}
 
 	private JPanel createPrecisionField() {
+		//creates the precision field with classic layout
 		JLabel label = new JLabel("Precision");
 		this.precisionField = new JTextField(precision);
 		this.precisionField.setEditable(false);
@@ -111,6 +112,7 @@ public class ControlPanel extends JPanel{
 	}
 	
 	private JPanel createLevelField() {
+		//creates the level field with classic layout
 		JLabel label = new JLabel("Progress");
 		this.progressField = new JTextField(progress + " / " + Game.numLevels);
 		this.progressField.setEditable(false);
