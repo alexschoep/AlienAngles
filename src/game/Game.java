@@ -40,8 +40,6 @@ public class Game extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		
-		
-		
 		//this is the size of the game always
 		
 		this.setResizable(false);

@@ -1,10 +1,15 @@
 package game;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
@@ -14,27 +19,46 @@ public class ControlPanel extends JPanel{
 	private int userAngle;
 	private int precision;
 	private int progress = 0;
+	private boolean launched = false;
 	
 	private JTextField angleGuess;
 	private JTextField precisionField;
 	private JTextField progressField;
+	public JButton launchButton;
 	
 	public ControlPanel() {
-		setLayout(new GridLayout(1, 4));
 		
+		setLayout(new GridLayout(1, 4));
+
 		Dimension d = new Dimension(225,100);
 		JButton launchButton = new JButton("LAUNCH");
 		launchButton.setPreferredSize(d);
-		launchButton.addActionListener(null);
-		
-		
+		ButtonListener launchButtonListener = new ButtonListener();
+		launchButton.addActionListener(launchButtonListener);
+
+
 		add(createAngleField());
 		add(createPrecisionField());
 		add(createLevelField());
 		add(launchButton);
-		
-		
+
+
 		setVisible(true);
+	}
+	
+	private class ButtonListener implements ActionListener {
+		private ButtonListener() {}
+		public void actionPerformed(ActionEvent e) {
+			//add launch sequence 
+			if(launched) {
+				JOptionPane.showMessageDialog(launchButton, "Launch sequence already commenced. Please wait!", "Alert", JOptionPane.INFORMATION_MESSAGE);
+			}
+			launched = true;
+		}
+	}
+	
+	public JButton getLaunchButton() {
+		return launchButton;
 	}
 	
 	private JPanel createAngleField() {
@@ -99,6 +123,6 @@ public class ControlPanel extends JPanel{
 	public void setUserAngle(int userAngle) {
 		this.userAngle = userAngle;
 	}
+
 	
-	//action listener in this class
 }
