@@ -53,6 +53,8 @@ public class Game extends JFrame{
 		}
 		
 		quiz = new Quiz(this);
+		add(controlPanel, BorderLayout.SOUTH);
+		controlPanel.setVisible(true);
 		//game constructor
 		protractor = new Protractor();
 		this.add(protractor, BorderLayout.CENTER);
