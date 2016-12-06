@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 
-public class Missile extends JLabel{
+public class Missile{
 	private double xPos;
 	private double yPos;
 	private boolean missileHit;
@@ -16,7 +16,6 @@ public class Missile extends JLabel{
 	
 	public Missile() {
 		super();
-		setVisible(true);
 		imageString = "/missile.png";
 		
 		try {
@@ -50,10 +49,7 @@ public class Missile extends JLabel{
 		missileHit = true;
 	}
 	
-	public void paintComponent(Graphics g) {
-		int x = (int) xPos;
-		int y = (int) yPos;
-		
-		g.drawImage(image, 100, 100, null); 
+	public void draw(Graphics g) {
+		g.drawImage(image, ((int)xPos + 130), (900 - (int)yPos - 450), null); 
 	}
 }

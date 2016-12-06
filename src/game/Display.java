@@ -18,5 +18,6 @@ public class Display extends JPanel{
 		super.paintComponents(g);
 		protractor.draw(g);
 		game.getLevels().get(0).getAlien().draw(g);
+		game.getLevels().get(0).getMissile().draw(g);
 	}
 }

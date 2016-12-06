@@ -33,8 +33,7 @@ public class Alien{
 	}
 	
 	public void draw(Graphics g) {
-		System.out.println("dfhcwghw");
-		g.drawImage(image, (int) xPos, (int) yPos, null);
+		g.drawImage(image, ((int)xPos + 110), (900 - (int)yPos - 500), null);
 	}
 	
 	public double getXPos() {
@@ -58,9 +57,9 @@ public class Alien{
 		alive = false;
 	}
 	
-	public void paintComponent(Graphics g) {
-		int x = (int) xPos;
-		int y = (int) yPos;
-		g.drawImage(image, 50, 50, null); 
-	}
+//	public void paintComponent(Graphics g) {
+//		int x = (int) xPos;
+//		int y = (int) yPos;
+//		g.drawImage(image, 50, 50, null); 
+//	}
 }
