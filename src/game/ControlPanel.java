@@ -142,7 +142,6 @@ public class ControlPanel extends JPanel{
 		} else {
 			JOptionPane.showMessageDialog(launchButton, "Miss!", "Alert", JOptionPane.INFORMATION_MESSAGE);
 		}
-		game.repaint();
 		progress++;
 		launched = false;
 		angleGuess.setEditable(true);
@@ -150,6 +149,7 @@ public class ControlPanel extends JPanel{
 		if (progress == Game.numLevels + 1) {
 			game.quizSetVisible(true);
 		}
+		game.repaint();
 		
 	}
 
