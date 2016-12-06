@@ -24,21 +24,21 @@ public class Level{
 	
 	public Level(Game game) {
 		levelNumber = 1;
-		question = new Question(levelAngle, levelNumber);
 		Random random = new Random();
 		levelAngle = random.nextInt(181);
 		alien = new Alien(levelAngle);
 		missile = new Missile(game);
+		question = new Question(levelAngle, levelNumber);
 		this.game = game;
 	}
 	
 	public Level(Game game, int levelNumber) {
 		this.levelNumber = levelNumber;
-		question = new Question(levelAngle, levelNumber);
 		Random random = new Random();
 		levelAngle = random.nextInt(181);
 		alien = new Alien(levelAngle);
 		missile = new Missile(game);
+		question = new Question(levelAngle, levelNumber);
 		this.game = game;
 	}
 	

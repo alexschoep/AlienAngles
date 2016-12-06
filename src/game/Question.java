@@ -24,10 +24,11 @@ public class Question extends JPanel {
 	private JRadioButton rightAnswerButton;
 	private JRadioButton wrongAnswerButton;
 	ButtonGroup bg;
-	private String selectedAnswer;
+	private boolean answerCorrect = false;
 	
 	
 	public Question(int angle, int questionNumber){
+		System.out.println(angle);
 		//takes angle from level and makes a question, a right answer, and a wrong answer
 		this.questionNumber = questionNumber;
 		Random random = new Random();
@@ -78,6 +79,9 @@ public class Question extends JPanel {
 		add(rightAnswerButton);
 		add(wrongAnswerButton);
 		setBorder(new TitledBorder (new EtchedBorder(), "Question " + questionNumber));
+		RadioButtonListener answerButtonListener = new RadioButtonListener();
+		rightAnswerButton.addActionListener(answerButtonListener);
+		wrongAnswerButton.addActionListener(answerButtonListener);
 	}
 	
 	public String getQuestion() {
@@ -97,7 +101,7 @@ public class Question extends JPanel {
 	}
 	
 	public boolean checkAnswer() {
-		return selectedAnswer.equals(rightAnswer);
+		return answerCorrect;
 	}
 
 	public void setAnswer(String string) {
@@ -109,9 +113,9 @@ public class Question extends JPanel {
 
 		public void actionPerformed(ActionEvent e) {
 			if (rightAnswerButton.isSelected()) {
-				selectedAnswer = rightAnswer;
+				answerCorrect = true;
 			} else {
-				selectedAnswer = wrongAnswer;
+				answerCorrect = false;
 			}
 		}
 		

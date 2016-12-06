@@ -58,6 +58,7 @@ public class Quiz extends JDialog {
 	private class ButtonListener implements ActionListener {
 		private ButtonListener() {}
 		public void actionPerformed(ActionEvent e) {
+			checkAnswers();
 			System.out.println("your score is " + getScore());
 		}
 	}

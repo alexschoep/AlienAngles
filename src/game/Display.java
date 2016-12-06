@@ -28,8 +28,10 @@ public class Display extends JPanel{
 		if (protractorVisible) {
 			protractor.draw(g);
 		}
-		game.getLevels().get(game.getControlPanel().getProgress() - 1).getAlien().draw(g);
-		game.getLevels().get(game.getControlPanel().getProgress() - 1).getMissile().draw(g);
+		if (game.getControlPanel().getProgress() - 1 < Game.numLevels) {
+			game.getLevels().get(game.getControlPanel().getProgress() - 1).getAlien().draw(g);
+			game.getLevels().get(game.getControlPanel().getProgress() - 1).getMissile().draw(g);
+		}
 
 	}
 }
